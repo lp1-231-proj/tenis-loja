@@ -1,4 +1,4 @@
-## Projeto LG2
+## Projeto LP1
 
 Aplicação na linguagem java para simular uma loja de tênis.
 
