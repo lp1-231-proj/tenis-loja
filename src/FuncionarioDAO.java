@@ -106,7 +106,7 @@ public class FuncionarioDAO {
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
-            return resultSetToTenis(rs);
+            return resultSetToFuncionario(rs);
         }
 
             rs.close();
@@ -129,7 +129,7 @@ public class FuncionarioDAO {
             ResultSet rs = statement.executeQuery(sql);
             ) {
             while(rs.next()) {
-            funcionario.add(resultSetToTenis(rs));
+            funcionario.add(resultSetToFuncionario(rs));
         }
         
             return funcionario;
@@ -141,7 +141,7 @@ public class FuncionarioDAO {
 
     }
 
-    private Funcionario resultSetToTenis(ResultSet rs) throws SQLException {
+    private Funcionario resultSetToFuncionario(ResultSet rs) throws SQLException {
         return new Funcionario(
             rs.getInt("id"),
             rs.getString("nome"),
