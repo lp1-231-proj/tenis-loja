@@ -1,4 +1,4 @@
-package selects;
+package main.selects;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
