@@ -53,6 +53,7 @@ public class ClienteDAO {
             statement.setString(1, cliente.getNome());
             statement.setString(2, cliente.getTelefone());
             statement.setString(3, cliente.getEmail());
+            statement.setInt(4, cliente.getId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
