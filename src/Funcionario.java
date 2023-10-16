@@ -1,6 +1,6 @@
 public class Funcionario {
 
-	private Integer id;
+	private static Integer id;
 	private String nome;
 	private String cpf;
 	private String rg;
@@ -15,7 +15,7 @@ public class Funcionario {
 	private String complemento;
 
 	public Funcionario(Integer id, String nome, String cpf, String rg, String dataNascimento, String telefone, String email, String cargo, String cep, String endereco, String cidade, String bairro, String complemento) {
-		this.id = id;
+		Funcionario.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
@@ -35,12 +35,12 @@ public class Funcionario {
 		
 	}
 
-	public Integer getId() {
+	public static Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		Funcionario.id = id;
 	}
 
 	public String getNome() {

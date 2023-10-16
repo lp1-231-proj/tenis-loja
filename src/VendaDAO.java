@@ -6,42 +6,38 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-// DAO = Data Access Object
-public class ClienteDAO {
-    public Cliente create(Cliente cliente) throws SQLException {
+public class VendaDAO {
+    public Venda create(Venda venda) throws SQLException {
         String sql = """
-            INSERT INTO Cliente VALUES (?, ?, ?, ?, ?, ?, ?);    
+            INSERT INTO Venda VALUES (?, ?, ?, ?);    
         """;
         try (
             Connection connection = Conexao.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
-            statement.setInt(1, Cliente.getId());
-            statement.setString(2, cliente.getNome());
-            statement.setString(3, cliente.getCpf());
-            statement.setString(4, cliente.getRg());
-            statement.setString(5, cliente.getDataNascimento());
-            statement.setString(6, cliente.getTelefone());
-            statement.setString(7, cliente.getEmail());
+            statement.setInt(1, Venda.getId());
+            statement.setInt(2, Cliente.getId());
+            statement.setInt(3, Funcionario.getId());
+            statement.setString(4, venda.getdata_venda());
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
 
             if(rs.next()) {
-                cliente.setId(rs.getInt(1));
+                venda.setId(rs.getInt(1));
             }
 
             rs.close();
 
-            return cliente;
+            return venda;
         }
     }
 
 
-    public Cliente update(Cliente cliente) throws SQLException {
+    public Venda update(Venda venda) throws SQLException {
         String sql = """
-        UPDATE Cliente
-        SET nome = ?, telefone = ?, email = ?
+        UPDATE Venda
+        SET data_venda = ?
         WHERE id = ?;
         """;
 
@@ -50,14 +46,12 @@ public class ClienteDAO {
             PreparedStatement statement = connection.prepareStatement(sql);
         ) {
 
-            statement.setString(1, cliente.getNome());
-            statement.setString(2, cliente.getTelefone());
-            statement.setString(3, cliente.getEmail());
-            statement.setInt(4, Cliente.getId());
+            statement.setString(1, venda.getdata_venda());
+            statement.setInt(2, Venda.getId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
-            return cliente;
+            return venda;
             }
             return null;
 
@@ -67,8 +61,8 @@ public class ClienteDAO {
     }
 
 
-    public Cliente findById(Integer id) {
-        String sql = "SELECT * FROM Cliente WHERE id = ?;";
+    public Venda findById(Integer id) {
+        String sql = "SELECT * FROM Venda WHERE id = ?;";
 
         try (
             Connection connection = Conexao.getConnection();
@@ -78,7 +72,7 @@ public class ClienteDAO {
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
-            return resultSetToCliente(rs);
+            return resultSetToVenda(rs);
             }
 
             rs.close();
@@ -91,9 +85,9 @@ public class ClienteDAO {
         return null;
     }
 
-    public List<Cliente> findAll() {
-        String sql = "SELECT * FROM Cliente;";
-        List<Cliente> cliente = new ArrayList<>();
+    public List<Venda> findAll() {
+        String sql = "SELECT * FROM Venda;";
+        List<Venda> venda = new ArrayList<>();
 
         try (
             Connection connection = Conexao.getConnection();
@@ -101,10 +95,10 @@ public class ClienteDAO {
             ResultSet rs = statement.executeQuery(sql);
         ) {
             while(rs.next()) {
-            cliente.add(resultSetToCliente(rs));
+            venda.add(resultSetToVenda(rs));
             }
 
-            return cliente;
+            return venda;
 
             } catch (Exception e) {
             e.printStackTrace();
@@ -113,15 +107,10 @@ public class ClienteDAO {
 
     }
 
-    private Cliente resultSetToCliente(ResultSet rs) throws SQLException {
-        return new Cliente(
+    private Venda resultSetToVenda(ResultSet rs) throws SQLException {
+        return new Venda(
         rs.getInt("id"),
-        rs.getString("nome"),
-        rs.getString("cpf"),
-        rs.getString("rg"),
-        rs.getString("data_nascimento"),
-        rs.getString("telefone"),
-        rs.getString("email")
+        rs.getString("data_venda")
         );
     }
-}
+} 

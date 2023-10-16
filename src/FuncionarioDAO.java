@@ -15,7 +15,7 @@ public class FuncionarioDAO {
             Connection connection = Conexao.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
-            statement.setInt(1, funcionario.getId());
+            statement.setInt(1, Funcionario.getId());
 			statement.setString(2, funcionario.getNome());
 			statement.setString(3, funcionario.getRg());
 			statement.setString(4, funcionario.getCpf());
@@ -64,7 +64,7 @@ public class FuncionarioDAO {
 			statement.setString(7, funcionario.getCidade());
 			statement.setString(8, funcionario.getBairro());
 			statement.setString(9, funcionario.getComplemento());
-            statement.setInt(10, funcionario.getId());
+            statement.setInt(10, Funcionario.getId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
@@ -92,7 +92,7 @@ public class FuncionarioDAO {
     }
 
     public void delete(Funcionario funcionario) {
-        delete(funcionario.getId());
+        delete(Funcionario.getId());
     }
     
     public Funcionario findById(Integer id) {

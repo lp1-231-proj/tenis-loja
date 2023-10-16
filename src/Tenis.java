@@ -1,6 +1,6 @@
 public class Tenis {
 
-    private Integer id;
+    private static Integer id;
     private String colorway;
     private double preco;
     private int tamanho;
@@ -8,7 +8,7 @@ public class Tenis {
     private int quantidade;
 
     public Tenis(Integer id, String colorway, double preco, int tamanho, String modelo, int quantidade) {
-        this.id = id;
+        Tenis.id = id;
         this.colorway = colorway;
         this.preco = preco;
         this.tamanho = tamanho;
@@ -18,12 +18,12 @@ public class Tenis {
     public Tenis () {
     }
 
-    public Integer getId() {
+    public static Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        Tenis.id = id;
     }
 
     public String getColorway() {

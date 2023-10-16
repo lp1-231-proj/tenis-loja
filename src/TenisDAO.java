@@ -15,7 +15,7 @@ public class TenisDAO {
             Connection connection = Conexao.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
-            statement.setInt(1, tenis.getId());
+            statement.setInt(1, Tenis.getId());
             statement.setString(2, tenis.getColorway());
             statement.setDouble(3, tenis.getPreco());
             statement.setInt(4, tenis.getTamanho());
@@ -52,7 +52,7 @@ public class TenisDAO {
             statement.setDouble(2, tenis.getPreco());
             statement.setString(3, tenis.getModelo());
             statement.setInt(4, tenis.getQuantidade());
-            statement.setInt(5, tenis.getId());
+            statement.setInt(5, Tenis.getId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
@@ -80,7 +80,7 @@ public class TenisDAO {
     }
 
     public void delete(Tenis tenis) {
-        delete(tenis.getId());
+        delete(Tenis.getId());
     }
     
     public Tenis findById(Integer id) {
