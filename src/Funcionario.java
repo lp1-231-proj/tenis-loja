@@ -1,6 +1,6 @@
 public class Funcionario {
 
-	private static Integer id;
+	static Integer id;
 	private String nome;
 	private String cpf;
 	private String rg;

@@ -16,8 +16,8 @@ public class VendaDAO {
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
             statement.setInt(1, Venda.getId());
-            statement.setInt(2, Cliente.getId());
-            statement.setInt(3, Funcionario.getId());
+            statement.setInt(2, Venda.getClienteId());
+            statement.setInt(3, Venda.getFuncionarioId());
             statement.setString(4, venda.getdata_venda());
             statement.executeUpdate();
 
@@ -110,6 +110,8 @@ public class VendaDAO {
     private Venda resultSetToVenda(ResultSet rs) throws SQLException {
         return new Venda(
         rs.getInt("id"),
+        rs.getInt("cliente_id"),
+        rs.getInt("funcionario_id"),
         rs.getString("data_venda")
         );
     }

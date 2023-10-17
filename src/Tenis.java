@@ -1,6 +1,6 @@
 public class Tenis {
 
-    private static Integer id;
+    static Integer id;
     private String colorway;
     private double preco;
     private int tamanho;

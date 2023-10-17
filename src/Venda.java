@@ -1,10 +1,14 @@
 public class Venda {
 
-	private static Integer id;
+	static Integer id;
+	private static Integer cliente_id;
+	private static Integer funcionario_id;
 	private String data_venda;
 
-	public Venda(Integer id, String data_venda) {
+	public Venda(Integer id, Integer cliente_id, Integer funcionario_id, String data_venda) {
 		Venda.id = id;
+		Venda.cliente_id = Cliente.id;
+		Venda.funcionario_id = Funcionario.id;
 		this.data_venda = data_venda;
 	} 
 	
@@ -20,6 +24,22 @@ public class Venda {
 		Venda.id = id;
 	}
 
+	public static Integer getClienteId() {
+		return cliente_id;
+	}
+
+	public void setClienteId(Integer cliente_id) {
+		Venda.cliente_id = cliente_id;
+	}
+
+	public static Integer getFuncionarioId() {
+		return funcionario_id;
+	}
+
+	public void setFuncionarioId(Integer funcionario_id) {
+		Venda.funcionario_id = funcionario_id;
+	}
+
 	public String getdata_venda() {
 		return data_venda;
 	}
@@ -29,42 +49,3 @@ public class Venda {
 	}
 
 }
-
-/*package model;
-
-import java.sql.Date;
-import model.ClienteModel;
-import model.FuncionarioModel;
-
-public class VendaModel {
-
-	private long idVenda;
-	private Date dataVenda;
-
-	public VendaModel(long idVenda, Date dataVenda) {
-
-		this.idVenda = idVenda;
-		this.dataVenda = dataVenda;
-	}
-
-	public VendaModel() {
-		
-	}
-	
-	public long getIdVenda() {
-		return idVenda;
-	}
-
-	public void setIdVenda(long idVenda) {
-		this.idVenda = idVenda;
-	}
-
-	public Date getDataVenda() {
-		return dataVenda;
-	}
-
-	public void setDataVenda(Date dataVenda) {
-		this.dataVenda = dataVenda;
-	}
-
-} */
