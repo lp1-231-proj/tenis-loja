@@ -1,19 +1,15 @@
 public class Tenis {
 
     static Integer id;
-    private String colorway;
+    private int modelo_id;
     private double preco;
-    private int tamanho;
-    private String modelo;
-    private int quantidade;
+    private int quantidadeTotal;
 
-    public Tenis(Integer id, String colorway, double preco, int tamanho, String modelo, int quantidade) {
+    public Tenis(Integer id, int modelo_id, double preco, int quantidadeTotal) {
         Tenis.id = id;
-        this.colorway = colorway;
+        this.modelo = modelo_id;
         this.preco = preco;
-        this.tamanho = tamanho;
-        this.modelo = modelo;
-        this.quantidade = quantidade;
+        this.quantidadeTotal = quantidadeTotal;
     }
     public Tenis () {
     }
@@ -26,14 +22,6 @@ public class Tenis {
         Tenis.id = id;
     }
 
-    public String getColorway() {
-        return colorway;
-    }
-
-    public void setColorway(String colorway) {
-        this.colorway = colorway;
-    }
-
     public double getPreco(){
         return preco;
     }
@@ -42,28 +30,20 @@ public class Tenis {
         this.preco = preco;
     }
 
-    public int getTamanho(){
-        return tamanho;
+    public int getModeloId(){
+        return modelo_id;
     }
 
-    public void setTamanho(int tamanho){
-        this.tamanho = tamanho;
+    public void setModeloId(int modelo_id){
+        this.modelo_id = modelo_id;
     }
 
-    public String getModelo(){
-        return modelo;
+    public int getQuantidadeTotal(){
+        return quantidadeTotal;
     }
 
-    public void setModelo(String modelo){
-        this.modelo = modelo;
-    }
-
-    public int getQuantidade(){
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade){
-        this.quantidade = quantidade;
+    public void setQuantidadeTotal(int quantidadeTotal){
+        this.quantidadeTotal = quantidadeTotal;
     }
 
 }
