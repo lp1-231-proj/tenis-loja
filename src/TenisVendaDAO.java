@@ -19,7 +19,7 @@ public class TenisVendaDAO {
             statement.setInt(2, TenisVenda.getTenisId());
             statement.setInt(3, TenisVenda.getVendaId());
             statement.setInt(4, tenisVenda.getQuantidade());
-            statement.setDouble(5, tenisVenda.getPreco());
+            statement.setDouble(5, tenisVenda.getValorUnitario());
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
@@ -38,7 +38,7 @@ public class TenisVendaDAO {
     public TenisVenda update(TenisVenda tenisVenda) throws SQLException {
         String sql = """
         UPDATE TenisVenda
-        SET quantidade = ?, preco = ?
+        SET quantidade = ?, valorUnitario = ?
         WHERE id = ?;
         """;
 
@@ -48,7 +48,7 @@ public class TenisVendaDAO {
         ) {
  
             statement.setInt(1, tenisVenda.getQuantidade());
-            statement.setDouble(2, tenisVenda.getPreco());
+            statement.setDouble(2, tenisVenda.getValorUnitario());
             statement.setInt(3, TenisVenda.getIdTenisVenda());
             int linhasAfetadas = statement.executeUpdate();
 
@@ -109,31 +109,4 @@ public class TenisVendaDAO {
 
     }
 
-    public void delete(Integer IdTenisVenda) {
-        String sql = "DELETE FROM TenisVenda WHERE id = ?;";
-
-        try (
-            Connection connection = Conexao.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql);
-        ) {
-            statement.setInt(1, IdTenisVenda);
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void delete(TenisVenda tenisVenda) {
-        delete(TenisVenda.getIdTenisVenda());
-    }
-
-    private TenisVenda resultSetToTenisVenda(ResultSet rs) throws SQLException {
-        return new TenisVenda(
-        rs.getInt("id"),
-        rs.getInt("tenis_id"),
-        rs.getInt("venda_id"),
-        rs.getInt("quantidade"),
-        rs.getDouble("preco")
-        );
-    }
 } 
