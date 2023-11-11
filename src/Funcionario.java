@@ -6,29 +6,17 @@ public class Funcionario {
 	private String rg;
 	private String dataNascimento;
 	private String telefone;
-	private String email;
 	private String cargo;
-	private String cep;
-	private String endereco;
-	private String cidade;
-	private String bairro;
-	private String complemento;
 
-	public Funcionario(Integer id, String nome, String cpf, String rg, String dataNascimento, String telefone, String email, String cargo, String cep, String endereco, String cidade, String bairro, String complemento) {
+	public Funcionario(Integer id, String nome, String cpf, String rg, String dataNascimento, String telefone, String cargo) {
 		Funcionario.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.dataNascimento = dataNascimento;
 		this.telefone = telefone;
-		this.email = email;
 		this.cargo = cargo;
-		this.cep = cep;
-		this.endereco = endereco;
-		this.cidade = cidade;
-		this.bairro = bairro;
-		this.complemento = complemento; 
-		
+	
 	} 
 	
 	public Funcionario() {
@@ -83,14 +71,6 @@ public class Funcionario {
 		this.telefone = telefone;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getCargo() {
 		return cargo;
 	}
@@ -98,45 +78,4 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
 }
