@@ -10,7 +10,7 @@ import java.util.List;
 public class ModeloDAO {
     public Modelo create(Modelo modelo) throws SQLException {
         String sql = """
-            INSERT INTO Funcionario VALUES (?, ?, ?, ?, ?);    
+            INSERT INTO Modelo VALUES (?, ?, ?, ?, ?);    
         """;
         try (
             Connection connection = Conexao.getConnection();
@@ -94,7 +94,7 @@ public class ModeloDAO {
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
-            return resultSetToFuncionario(rs);
+            return resultSetToModelo(rs);
         }
 
             rs.close();
@@ -117,7 +117,7 @@ public class ModeloDAO {
             ResultSet rs = statement.executeQuery(sql);
             ) {
             while(rs.next()) {
-            modelo.add(resultSetToFuncionario(rs));
+            modelo.add(resultSetToModelo(rs));
         }
         
             return modelo;
@@ -129,8 +129,8 @@ public class ModeloDAO {
 
     }
 
-    private Funcionario resultSetToFuncionario(ResultSet rs) throws SQLException {
-        return new Funcionario(
+    private Modelo resultSetToModelo(ResultSet rs) throws SQLException {
+        return new Modelo(
             rs.getInt("id"),
             rs.getString("nome"),
             rs.getString("colorway"),
