@@ -4,15 +4,15 @@ public class TenisVenda {
 	private static Integer tenis_id;
 	private static Integer venda_id;
 	private int quantidade;
-	private Double preco;
+	private Double valorUnitario;
 	
 
-	public TenisVenda(Integer IdTenisVenda, Integer tenis_id, Integer venda_id, int quantidade, Double preco) {
+	public TenisVenda(Integer IdTenisVenda, Integer tenis_id, Integer venda_id, int quantidade, Double valorUnitario) {
 		TenisVenda.IdTenisVenda = IdTenisVenda;
 		TenisVenda.tenis_id = Tenis.id;
 		TenisVenda.venda_id = Venda.id;
 		this.quantidade = quantidade;
-		this.preco = preco;
+		this.valorUnitario = ValorUnitario;
 		
 	} 
 	
@@ -48,15 +48,15 @@ public class TenisVenda {
 		return quantidade;
 	}
 
-	public void setQuantidadei(int quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public Double getPreco() {
+	public Double getValorUnitario() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setValorUnitario(Double preco) {
 		this.preco = preco;
 	}
 
