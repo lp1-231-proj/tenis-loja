@@ -20,11 +20,11 @@ public class Principal {
         // Funcionário
         FuncionarioDAO funcionarioDao = new FuncionarioDAO();
         
-        Funcionario funcionario = new Funcionario(1, "Luiz Felipe", "11111111111", "111111111", "1998-10-28", "00000000000", "felipeluiz@example.com", "Vendedor", "22222222", "Rua Belchior - 58", "São Paulo", "Itaquera", "Casa 2");
+        //Funcionario funcionario = new Funcionario(1, "Luiz Felipe", "11111111111", "111111111", "1998-10-28", "00000000000", "felipeluiz@example.com", "Vendedor", "22222222", "Rua Belchior - 58", "São Paulo", "Itaquera", "Casa 2");
         
-        Funcionario funcionarioCriado = funcionarioDao.create(funcionario);
+        //Funcionario funcionarioCriado = funcionarioDao.create(funcionario);
 
-        System.out.println(funcionarioCriado.getId());
+        //System.out.println(funcionarioCriado.getId());
 
         Funcionario funcionarioEncontrado = funcionarioDao.findById(1);
 
