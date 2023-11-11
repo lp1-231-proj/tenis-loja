@@ -51,7 +51,7 @@ public class FuncionarioDAO {
 
             statement.setString(1, funcionario.getNome());
             statement.setString(2, funcionario.getTelefone());
-            statement.setString(3, funcionario.getTelefone());
+            statement.setString(3, funcionario.getCargo());
             statement.setInt(4, Funcionario.getId());
             int linhasAfetadas = statement.executeUpdate();
 
