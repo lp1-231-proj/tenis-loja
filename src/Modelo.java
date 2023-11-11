@@ -6,14 +6,14 @@ public class Modelo {
     private String tamanho;
     private int quantidade;
 
-    public Tenis(Integer id, string nome, string colorway, string tamanho, int quantidade) {
+    public Modelo(Integer id, string nome, string colorway, string tamanho, int quantidade) {
         Modelo.id = id;
         this.nome = nome;
         this.colorway = colorway;
         this.tamanho = tamanho;
         this.quantidade = quantidade;
     }
-    public Tenis () {
+    public Modelo () {
     }
 
     public static Integer getId() {
