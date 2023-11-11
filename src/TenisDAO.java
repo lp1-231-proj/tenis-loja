@@ -9,18 +9,16 @@ import java.util.List;
 public class TenisDAO {
     public Tenis create(Tenis tenis) throws SQLException {
         String sql = """
-            INSERT INTO Tenis VALUES (?, ?, ?, ?, ?, ?);    
+            INSERT INTO Tenis VALUES (?, ?, ?, ?);    
         """;
         try (
             Connection connection = Conexao.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
             statement.setInt(1, Tenis.getId());
-            statement.setString(2, tenis.getColorway());
+            statement.setInt(2, tenis.getModeloId());
             statement.setDouble(3, tenis.getPreco());
-            statement.setInt(4, tenis.getTamanho());
-            statement.setString(5, tenis.getModelo());
-            statement.setInt(6, tenis.getQuantidade());
+            statement.setInt(4, tenis.getQuantidadeTotal());
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
@@ -39,7 +37,7 @@ public class TenisDAO {
     public Tenis update(Tenis tenis) throws SQLException {
         String sql = """
         UPDATE Tenis
-        SET colorway = ?, preco = ?, modelo = ?, quantidade = ?
+        SET preco = ?, quantidadeTotal = ?
         WHERE id = ?;
         """;
 
@@ -47,12 +45,10 @@ public class TenisDAO {
             Connection connection = Conexao.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
         ) {
-
-            statement.setString(1, tenis.getColorway());
+            statement.setInt(1, tenis.getId());
             statement.setDouble(2, tenis.getPreco());
-            statement.setString(3, tenis.getModelo());
-            statement.setInt(4, tenis.getQuantidade());
-            statement.setInt(5, Tenis.getId());
+            statement.setInt(3, tenis.getQuantidadeTotal());
+            statement.setInt(4, Tenis.getModeloId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
@@ -65,24 +61,6 @@ public class TenisDAO {
         }
     }
 
-    public void delete(Integer id) {
-        String sql = "DELETE FROM Tenis WHERE id = ?;";
-
-        try (
-            Connection connection = Conexao.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql);
-        ) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void delete(Tenis tenis) {
-        delete(Tenis.getId());
-    }
-    
     public Tenis findById(Integer id) {
         String sql = "SELECT * FROM Tenis WHERE id = ?;";
 
@@ -132,11 +110,9 @@ public class TenisDAO {
     private Tenis resultSetToTenis(ResultSet rs) throws SQLException {
         return new Tenis(
             rs.getInt("id"),
-            rs.getString("colorway"),
+            rs.getInd("modelo_id"),
             rs.getDouble("preco"),
-            rs.getInt("tamanho"),
-            rs.getString("modelo"),
-            rs.getInt("quantidade")
+            rs.getInt("quantidadeTotal")
         );
     }
 }
