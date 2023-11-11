@@ -9,7 +9,7 @@ import java.util.List;
 public class FuncionarioDAO {
     public Funcionario create(Funcionario funcionario) throws SQLException {
         String sql = """
-            INSERT INTO Funcionario VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);    
+            INSERT INTO Funcionario VALUES (?, ?, ?, ?, ?, ?, ?);    
         """;
         try (
             Connection connection = Conexao.getConnection();
@@ -20,14 +20,8 @@ public class FuncionarioDAO {
 			statement.setString(3, funcionario.getRg());
 			statement.setString(4, funcionario.getCpf());
 			statement.setString(5, funcionario.getDataNascimento());
-			statement.setString(6, funcionario.getEmail());
-			statement.setString(7, funcionario.getTelefone());
-			statement.setString(8, funcionario.getCargo());
-			statement.setString(9, funcionario.getCep());
-			statement.setString(10, funcionario.getEndereco());
-			statement.setString(11, funcionario.getCidade());
-			statement.setString(12, funcionario.getBairro());
-			statement.setString(13, funcionario.getComplemento());
+			statement.setString(6, funcionario.getTelefone());
+			statement.setString(7, funcionario.getCargo());
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
@@ -46,7 +40,7 @@ public class FuncionarioDAO {
     public Funcionario update(Funcionario funcionario) throws SQLException {
         String sql = """
         UPDATE Funcionario
-        SET nome = ?, email = ?, telefone = ?, cargo = ?, cep = ?, endereco = ?, cidade = ?, bairro, complemento = ?
+        SET nome = ?, telefone = ?, cargo = ?
         WHERE id = ?;
         """;
 
@@ -56,15 +50,9 @@ public class FuncionarioDAO {
         ) {
 
             statement.setString(1, funcionario.getNome());
-			statement.setString(2, funcionario.getEmail());
-			statement.setString(3, funcionario.getTelefone());
-			statement.setString(4, funcionario.getCargo());
-			statement.setString(5, funcionario.getCep());
-			statement.setString(6, funcionario.getEndereco());
-			statement.setString(7, funcionario.getCidade());
-			statement.setString(8, funcionario.getBairro());
-			statement.setString(9, funcionario.getComplemento());
-            statement.setInt(10, Funcionario.getId());
+            statement.setString(2, funcionario.getTelefone());
+            statement.setString(3, funcionario.getTelefone());
+            statement.setInt(4, Funcionario.getId());
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
@@ -148,14 +136,8 @@ public class FuncionarioDAO {
             rs.getString("rg"),
             rs.getString("cpf"),
             rs.getString("dataNascimento"),
-            rs.getString("email"),
             rs.getString("telefone"),
-            rs.getString("cargo"),
-            rs.getString("cep"),
-            rs.getString("endereco"),
-            rs.getString("cidade"),
-            rs.getString("bairro"),
-            rs.getString("complemento")
+            rs.getString("cargo")
         );
     }
 }
