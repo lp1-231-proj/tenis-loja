@@ -20,8 +20,8 @@ public class EnderecoDAO {
 			statement.setInt(2, Endereco.getFuncionarioId());
 			statement.setString(3, Endereco.getCidade());
 			statement.setString(4, Endereco.getBairro());
-			statement.setInt(5, Endereco.getComplemento());
-            statement.setChar(6, Endereco.getCep());
+			statement.setString(5, Endereco.getComplemento());
+            statement.setString(6, Endereco.getCep());
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
@@ -49,10 +49,10 @@ public class EnderecoDAO {
             PreparedStatement statement = connection.prepareStatement(sql);
         ) {
 
-            statement.setString(1, endereco.getCidade());
-            statement.setString(2, endereco.getBairro());
-            statement.setString(3, endereco.getComplemento());
-            statement.setChar(4, endereco.getCep());
+            statement.setString(1, Endereco.getCidade());
+            statement.setString(2, Endereco.getBairro());
+            statement.setString(3, Endereco.getComplemento());
+            statement.setString(4, Endereco.getCep());
             statement.setInt(5, Endereco.getId());
             int linhasAfetadas = statement.executeUpdate();
 
@@ -133,12 +133,11 @@ public class EnderecoDAO {
     private Endereco resultSetToEndereco(ResultSet rs) throws SQLException {
         return new Endereco(
             rs.getInt("id"),
+            rs.getInt("funcionario_id"),
             rs.getString("cidade"),
             rs.getString("bairro"),
             rs.getString("complemento"),
-            rs.getChar("cep")
+            rs.getString("cep")
         );
     }
-}
-    
 }

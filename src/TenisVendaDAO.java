@@ -109,4 +109,14 @@ public class TenisVendaDAO {
 
     }
 
-} 
+
+    private TenisVenda resultSetToTenisVenda(ResultSet rs) throws SQLException {
+        return new TenisVenda(
+        rs.getInt("IdTenisVenda"),
+        rs.getInt("tenis_id"),
+        rs.getInt("venda_id"),
+        rs.getInt("quantidade"),
+        rs.getDouble("valorUnitario")
+        );
+    }
+}

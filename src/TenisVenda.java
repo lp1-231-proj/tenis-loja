@@ -12,7 +12,7 @@ public class TenisVenda {
 		TenisVenda.tenis_id = Tenis.id;
 		TenisVenda.venda_id = Venda.id;
 		this.quantidade = quantidade;
-		this.valorUnitario = ValorUnitario;
+		this.valorUnitario = valorUnitario;
 		
 	} 
 	
@@ -53,11 +53,11 @@ public class TenisVenda {
 	}
 
 	public Double getValorUnitario() {
-		return preco;
+		return valorUnitario;
 	}
 
 	public void setValorUnitario(Double preco) {
-		this.preco = preco;
+		this.valorUnitario = preco;
 	}
 
 }

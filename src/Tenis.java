@@ -1,13 +1,13 @@
 public class Tenis {
 
     static Integer id;
-    private int modelo_id;
+    private static int modelo_id;
     private double preco;
     private int quantidadeTotal;
 
     public Tenis(Integer id, int modelo_id, double preco, int quantidadeTotal) {
         Tenis.id = id;
-        this.modelo = modelo_id;
+        Tenis.modelo_id = modelo_id;
         this.preco = preco;
         this.quantidadeTotal = quantidadeTotal;
     }
@@ -30,12 +30,12 @@ public class Tenis {
         this.preco = preco;
     }
 
-    public int getModeloId(){
+    public static int getModeloId(){
         return modelo_id;
     }
 
     public void setModeloId(int modelo_id){
-        this.modelo_id = modelo_id;
+        Tenis.modelo_id = modelo_id;
     }
 
     public int getQuantidadeTotal(){

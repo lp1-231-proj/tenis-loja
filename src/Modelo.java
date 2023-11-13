@@ -6,7 +6,7 @@ public class Modelo {
     private String tamanho;
     private int quantidade;
 
-    public Modelo(Integer id, string nome, string colorway, string tamanho, int quantidade) {
+    public Modelo(Integer id, String nome, String colorway, String tamanho, int quantidade) {
         Modelo.id = id;
         this.nome = nome;
         this.colorway = colorway;
@@ -24,27 +24,27 @@ public class Modelo {
         Tenis.id = id;
     }
 
-    public string getNome(){
+    public String getNome(){
         return nome;
     }
 
-    public void setNome(string nome){
+    public void setNome(String nome){
         this.nome = nome;
     }
 
-    public string getColorway(){
+    public String getColorway(){
         return colorway;
     }
 
-    public void setColorway(int colorway){
+    public void setColorway(String colorway){
         this.colorway = colorway;
     }
 
-    public string getTamanho(){
+    public String getTamanho(){
         return tamanho;
     }
 
-    public void setTamanho(int tamanho){
+    public void setTamanho(String tamanho){
         this.tamanho = tamanho;
     }
 

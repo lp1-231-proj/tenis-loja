@@ -51,7 +51,7 @@ public class ModeloDAO {
             statement.setString(1, modelo.getNome());
             statement.setString(2, modelo.getColorway());
             statement.setString(3, modelo.getTamanho());
-            statement.setString(4, modelo.getQuantidade());
+            statement.setInt(4, modelo.getQuantidade());
             statement.setInt(5, Modelo.getId());
             int linhasAfetadas = statement.executeUpdate();
 
@@ -135,7 +135,7 @@ public class ModeloDAO {
             rs.getString("nome"),
             rs.getString("colorway"),
             rs.getString("tamanho"),
-            rs.getString("quantidade")
+            rs.getInt("quantidade")
         );
     }
 }
