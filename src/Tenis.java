@@ -45,5 +45,8 @@ public class Tenis {
     public void setQuantidadeTotal(int quantidadeTotal){
         this.quantidadeTotal = quantidadeTotal;
     }
+    public char[] getColorway() {
+        return null;
+    }
 
 }

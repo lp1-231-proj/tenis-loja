@@ -10,7 +10,7 @@ public class Principal {
 
         Cliente clienteCriado = clienteDao.create(cliente);
 
-        System.out.println(clienteCriado.getId());
+        System.out.println(Cliente.getId());
 
         Cliente clienteEncontrado = clienteDao.findById(1);
 
@@ -34,11 +34,11 @@ public class Principal {
         // Tenis
         TenisDAO tenisDao = new TenisDAO();
         
-        Tenis tenis = new Tenis(1, "Lakers Home", 749.00, 42, "Lebron XVII", 1);
+        Tenis tenis = new Tenis(1,1, 799.99, 20);
         
         Tenis tenisCriado = tenisDao.create(tenis);
         
-        System.out.println(tenisCriado.getId());
+        System.out.println(Tenis.getId());
 
         Tenis tenisEncontrado = tenisDao.findById(1);
 
@@ -52,7 +52,7 @@ public class Principal {
         
         Venda vendaCriada = vendaDao.create(venda);
 
-        System.out.println(vendaCriada.getId());
+        System.out.println(Venda.getId());
 
         Venda vendaEncontrada = vendaDao.findById(1);
 
@@ -66,7 +66,7 @@ public class Principal {
         
         TenisVenda tenisVendaCriado = tenisVendaDao.create(tenisVenda);
 
-        System.out.println(tenisVendaCriado.getIdTenisVenda());
+        System.out.println(TenisVenda.getIdTenisVenda());
 
         TenisVenda tenisVendaEncontrado = tenisVendaDao.findById(1);
 
